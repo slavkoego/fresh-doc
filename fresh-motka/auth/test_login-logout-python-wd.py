@@ -1,20 +1,18 @@
-import unittest
-import application from Application
+import pytest
+from application import Application
 
-class LoginLogout(unittest.TestCase):
-    def setUp(self):
-        self.app = Application
 
-    def test_login_logout(self):
-        driver = self.wd
-        self.open_home_page()
-        self.find_button_login()
-        self.login(username="test.qds.777@bk.ru", password="AnSa1991")
-        self.create_new_doc()
-        self.logout()
+@pytest.fixture()
+def app(request):
+    fixture = Application()
+    request.addfinalizer(fixture.destroy)
+    return fixture
 
-    def tearDown(self):
-        self.app.destroy()
 
-if __name__ == "__main__":
-    unittest.main()
+def test_login_logout(app):
+    app.open_home_page()
+    app.find_button_login()
+    app.login(username="test.qds.777@bk.ru", password="AnSa1991")
+    app.create_new_doc()
+    app.logout()
+
