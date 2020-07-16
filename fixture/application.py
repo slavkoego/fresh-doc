@@ -8,7 +8,7 @@ class Application:
     def __init__(self):
         self.wd = webdriver.Chrome()
         self.session = SessionHelper(self)
-        self.doc = PatternHelper(self)
+        self.pattern = PatternHelper(self)
         self.wd.set_window_size(1280, 984)
         self.wd.implicitly_wait(30)
 
