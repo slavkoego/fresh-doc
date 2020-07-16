@@ -1,4 +1,5 @@
 import pytest
+
 from fixture.application import Application
 
 
@@ -10,9 +11,8 @@ def app(request):
 
 
 def test_login_logout(app):
-    app.open_home_page()
-    app.find_button_login()
-    app.login(username="test.qds.777@bk.ru", password="AnSa1991")
+    app.session.open_home_page()
+    app.session.login(username="test.qds.777@bk.ru", password="AnSa1991")
     app.create_new_doc()
-    app.logout()
+    app.session.logout()
 
