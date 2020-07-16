@@ -1,6 +1,6 @@
 from selenium import webdriver
 from fixture.session import SessionHelper
-from  fixture.doc import DocHelper
+from fixture.my_pattern import PatternHelper
 
 
 
@@ -8,7 +8,7 @@ class Application:
     def __init__(self):
         self.wd = webdriver.Chrome()
         self.session = SessionHelper(self)
-        self.doc = DocHelper(self)
+        self.doc = PatternHelper(self)
         self.wd.set_window_size(1280, 984)
         self.wd.implicitly_wait(30)
 
