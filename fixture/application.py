@@ -1,6 +1,6 @@
 from selenium import webdriver
 from fixture.session import SessionHelper
-from fixture.my_pattern import PatternHelper
+from fixture.pattern import PatternHelper
 
 
 
