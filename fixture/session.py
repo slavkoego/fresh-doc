@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as ec
+from selenium.webdriver.support import expected_conditions as EC
 
 class SessionHelper:
     def __init__(self, app):
@@ -22,5 +22,5 @@ class SessionHelper:
     def logout(self):
         wd = self.app.wd
         log_out = WebDriverWait(self.app.wd, 10).until(
-            ec.presence_of_element_located((By.CSS_SELECTOR, "span.DD-button__caption")))
+            EC.presence_of_element_located((By.CSS_SELECTOR, "span.DD-button__caption")))
         log_out.click()

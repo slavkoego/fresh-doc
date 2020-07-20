@@ -1,11 +1,11 @@
 from selenium.webdriver.common.by import By
 
 
-class PatternHelper():
+class MytemplatesHelper():
     def __init__(self, app):
         self.app = app
 
-    def create_new_pattern(self):
+    def create_new_templates(self):
         wd = self.app.wd
         wd.find_element(By.LINK_TEXT, "test.qds.777@bk.ru").click()
         wd.find_element(By.LINK_TEXT, "Мои шаблоны").click()
@@ -13,13 +13,15 @@ class PatternHelper():
         wd.find_element(By.LINK_TEXT, "Новый договор").click()
         wd.find_element_by_class_name("qd-catalog-dialog-button.qd-catalog-dialog__button.qd-catalog-dialog__button_confirm.qd-catalog-dialog-button__action-target").click()
 
-    def rename_new_pattern(self):
+    def rename_new_templates(self, rename):
         wd = self.app.wd
+        wd.find_element(By.CSS_SELECTOR, "div:nth-child(4) > div > button:nth-child(1)").click()
+        wd.find_element(By.CSS_SELECTOR, "span.qd-filelist-table-item__field.qd-filelist-table-item__field_Наименование.DD-style-3f").send_keys(
+            rename)
         wd.find_element(By.CSS_SELECTOR, "div:nth-child(4) > div > button:nth-child(1)").click()
 
 
-
-    def delete_new_pattern(self):
+    def delete_new_templates(self):
         wd = self.app.wd
         wd.find_element(By.LINK_TEXT, "test.qds.777@bk.ru").click()
         wd.find_element(By.LINK_TEXT, "Мои шаблоны").click()
